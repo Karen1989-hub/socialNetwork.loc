@@ -16,26 +16,36 @@
     
 
     <!-- Fonts -->
-    
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
 
-    <!-- Styles -->
-    
+    <!-- Styles -->     
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />		
+        <link rel="stylesheet" href="{{asset('css/style.css')}}" />		
+        <link rel="stylesheet" href="{{asset('css/ionicons.min.css')}}" />        
+        <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}" />
+        <!-- <link href="css/emoji.css" rel="stylesheet"> -->
+        <link href="{{asset('css/emoji.css')}}" rel="stylesheet">    
+
+    <!--Favicon-->
+        <link rel="shortcut icon" type="image/png" href="images/fav.png"/>
 </head>
 <body>
     
 
-<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+<!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                    
     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+        onclick="event.preventDefault();
+         document.getElementById('logout-form').submit();">
+        {{ __('Logout') }}
+     </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
         @csrf
         <input type="submit" value="logout">
     </form>
-</div>                  
+</div>                   -->
+
+
                             
 </body>
 </html>
