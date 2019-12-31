@@ -116,7 +116,7 @@
                   <li><a href="{{route('album')}}">Album</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
                   <li><a href="">Chatroom</a></li>
-                  <li><a href="">Adit profile</a></li>
+                  <li><a href="{{route('editProf')}}">Adit profile</a></li>
                   
                 </ul>
                 <ul class="follow-me list-inline">                  
@@ -140,7 +140,7 @@
                   <li><a href="{{route('album')}}">Album</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
                   <li><a href="">Chatroom</a></li>
-                  <li><a href="">Adit profile</a></li>
+                  <li><a href="{{route('editProf')}}">Adit profile</a></li>
               </ul>
               <button class="btn-primary">Add Friend</button>
             </div>

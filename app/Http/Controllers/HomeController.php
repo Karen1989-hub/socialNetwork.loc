@@ -34,4 +34,16 @@ class HomeController extends Controller
     public function friends(){
         return view('friends');
     }
+    public function editProf(){
+        return view('editProfBasic');
+    }
+    public function educEndWork(){
+        return view('educEndWork');
+    }
+    public function myInterest(){
+        return view('myInterest');
+    }
+    public function changePassword(){
+        return view('changePassword');
+    }
 }
