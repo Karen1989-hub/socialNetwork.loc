@@ -73,21 +73,22 @@
                   <div class="line"></div>
                 </div>
                 <div class="edit-block">
-                  <form name="education" id="education" class="form-inline">
+                  <form method="post" action="{{route('saveEducat')}}" name="education" id="education" class="form-inline">
+                    @csrf
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="school">My university</label>
-                        <input id="school" class="form-control input-group-lg" type="text" name="school" title="Enter School" placeholder="My School" value="Harvard Unversity" />
+                        <input id="school" class="form-control input-group-lg" type="text" name="school" title="Enter School" placeholder="My School" />
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-6">
                         <label for="date-from">From</label>
-                        <input id="date-from" class="form-control input-group-lg" type="text" name="date" title="Enter a Date" placeholder="from" value="2012" />
+                        <input id="date-from" class="form-control input-group-lg" type="text" name="From" title="Enter a Date" placeholder="from" />
                       </div>
                       <div class="form-group col-xs-6">
                         <label for="date-to" class="">To</label>
-                        <input id="date-to" class="form-control input-group-lg" type="text" name="date" title="Enter a Date" placeholder="to" value="2016" />
+                        <input id="date-to" class="form-control input-group-lg" type="text" name="To" title="Enter a Date" placeholder="to" />
                       </div>
                     </div>
                     <div class="row">
@@ -102,7 +103,7 @@
                         <input id="graduate" type="checkbox" name="graduate" value="graduate" checked> Yes!! 
                       </div>
                     </div>
-                    <button class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
                   </form>
                 </div>
                 <div class="block-title">
@@ -112,7 +113,8 @@
                   <div class="line"></div>
                 </div>
                 <div class="edit-block">
-                  <form name="work" id="work" class="form-inline">
+                  <form method="post" action="{{route('saveWorkExp')}}" name="work" id="work" class="form-inline">
+                    @csrf
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="company">Company</label>
@@ -147,7 +149,7 @@
                         <textarea id="work-description" name="description" class="form-control" placeholder="Some texts about my work" rows="4" cols="400">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</textarea>
                       </div>
                     </div>
-                    <button class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
                   </form>
                 </div>
               </div>
@@ -187,6 +189,7 @@
         </div>
       </div>
     </div>
+   
 @endsection
 
 @section('footer')

@@ -26,3 +26,6 @@ Route::get('/educEndWork','HomeController@educEndWork')->name('educEndWork');
 Route::get('/myInterest','HomeController@myInterest')->name('myInterest');
 Route::get('/changePassword','HomeController@changePassword')->name('changePassword');
 
+Route::post('/changeBasicInform','changeUserInformController@changeBasicInform')->name('changeBasicInform');
+Route::post('/saveEducat','changeUserInformController@saveEducat')->name('saveEducat');
+Route::post('/saveWorkExp','changeUserInformController@saveWorkExp')->name('saveWorkExp');

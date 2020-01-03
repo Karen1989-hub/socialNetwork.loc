@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -21,12 +23,27 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        $id = Auth::id();
+        $request->session()->put('autentificateUserId',$id);
+        $row = User::find($id);
+        $autentificateUserfirstName = $row->firstName;
+        $autentificateUserLastName = $row->lastName; 
+        $gender = $row->gender;
+       
+        $request->session()->put('autentificateUserfirstName',$autentificateUserfirstName);
+        $request->session()->put('autentificateUserLastName',$autentificateUserLastName);
+        $request->session()->put('gender',$gender);        
+        
         return view('home');
     }
     public function about(){
-        return view('about');
+        $id = Auth::id();
+        $row = User::find($id);
+        $aboutMe = $row->aboutMe;
+        $arr = ['aboutMe'=>$aboutMe];
+        return view('about',$arr);
     }
     public function album(){
         return view('album');
@@ -46,4 +63,5 @@ class HomeController extends Controller
     public function changePassword(){
         return view('changePassword');
     }
+   
 }

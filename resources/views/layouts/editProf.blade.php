@@ -102,8 +102,12 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="profile-info">
-                  <img src="images/users/user-1.jpg" alt="" class="img-responsive profile-photo" />
-                  <h3>Sarah Cruiz</h3>
+                   @if(Session::get('gender')=="male")
+                  <img src="images/users/generic-user1.jpg" alt="" class="img-responsive profile-photo" />
+                @elseif(Session::get('gender')=="female") 
+                  <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
+                @endif
+                  <h3>{{Session::get('autentificateUserfirstName')}} {{Session::get('autentificateUserLastName')}}</h3>
                   <p class="text-muted">Creative Director</p>
                 </div>
               </div>
@@ -129,8 +133,12 @@
           <!--Timeline Menu for Small Screens-->
           <div class="navbar-mobile hidden-lg hidden-md">
             <div class="profile-info">
-              <img src="images/users/user-1.jpg" alt="" class="img-responsive profile-photo" />
-              <h4>Sarah Cruiz</h4>
+               @if(Session::get('gender')=="male")
+                  <img src="images/users/generic-user1.jpg" alt="" class="img-responsive profile-photo" />
+                @elseif(Session::get('gender')=="female") 
+                  <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
+                @endif
+              <h4>{{Session::get('autentificateUserfirstName')}} {{Session::get('autentificateUserLastName')}}</h4>
               <p class="text-muted">Creative Director</p>
             </div>
             <div class="mobile-menu">
@@ -169,34 +177,34 @@
               <div class="edit-profile-container">
                 <div class="block-title">
                   <h4 class="grey"><i class="icon ion-android-checkmark-circle"></i>Edit basic information</h4>
-                  <div class="line"></div>
-                  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</p>
+                  <p></p>
                   <div class="line"></div>
                 </div>
                 <div class="edit-block">
-                  <form name="basic-info" id="basic-info" class="form-inline">
+                  <form method="POST" action="{{ route('changeBasicInform') }}" name="basic-info" id="basic-info" class="form-inline">
+                    @csrf
                     <div class="row">
                       <div class="form-group col-xs-6">
                         <label for="firstname">First name</label>
-                        <input id="firstname" class="form-control input-group-lg" type="text" name="firstname" title="Enter first name" placeholder="First name" value="John" />
+                        <input id="firstname" class="form-control input-group-lg" type="text" name="firstName" title="Enter first name" placeholder="First name"/>
                       </div>
                       <div class="form-group col-xs-6">
                         <label for="lastname" class="">Last name</label>
-                        <input id="lastname" class="form-control input-group-lg" type="text" name="lastname" title="Enter last name" placeholder="Last name" value="Doe" />
+                        <input id="lastname" class="form-control input-group-lg" type="text" name="lastName" title="Enter last name" placeholder="Last name"/>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="email">My email</label>
-                        <input id="email" class="form-control input-group-lg" type="text" name="Email" title="Enter Email" placeholder="My Email" value="razor.venon@gmail.com" />
+                        <input id="email" class="form-control input-group-lg" type="text" name="email" title="Enter Email" placeholder="My Email"/>
                       </div>
                     </div>
                     <div class="row">
                       <p class="custom-label"><strong>Date of Birth</strong></p>
                       <div class="form-group col-sm-3 col-xs-6">
                         <label for="month" class="sr-only"></label>
-                        <select class="form-control" id="day">
-                          <option value="Day">Day</option>
+                        <select class="form-control" id="day" name="day">
+                          <option selected>Day</option>
                           <option>1</option>
                           <option>2</option>
                           <option>3</option>
@@ -215,7 +223,7 @@
                           <option>16</option>
                           <option>17</option>
                           <option>18</option>
-                          <option selected>19</option>
+                          <option>19</option>
                           <option>20</option>
                           <option>21</option>
                           <option>22</option>
@@ -232,8 +240,8 @@
                       </div>
                       <div class="form-group col-sm-3 col-xs-6">
                         <label for="month" class="sr-only"></label>
-                        <select class="form-control" id="month">
-                          <option value="month">Month</option>
+                        <select class="form-control" id="month" name="month">
+                          <option selected>Month</option>
                           <option>Jan</option>
                           <option>Feb</option>
                           <option>Mar</option>
@@ -245,14 +253,14 @@
                           <option>Sep</option>
                           <option>Oct</option>
                           <option>Nov</option>
-                          <option selected>Dec</option>
+                          <option>Dec</option>
                         </select>
                       </div>
                       <div class="form-group col-sm-6 col-xs-12">
                         <label for="year" class="sr-only"></label>
-                        <select class="form-control" id="year">
-                          <option value="year">Year</option>
-                          <option selected>2000</option>
+                        <select class="form-control" id="year" name="year">
+                          <option selected>Year</option>
+                          <option>2000</option>
                           <option>2001</option>
                           <option>2002</option>
                           <option>2004</option>
@@ -270,29 +278,29 @@
                     <div class="form-group gender">
                       <span class="custom-label"><strong>I am a: </strong></span>
                       <label class="radio-inline">
-                        <input type="radio" name="optradio" checked>Male
+                        <input type="radio" name="gender" checked value="male">Male
                       </label>
                       <label class="radio-inline">
-                        <input type="radio" name="optradio">Female
+                        <input type="radio" name="gender" value="female">Female
                       </label>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-6">
                         <label for="city"> My city</label>
-                        <input id="city" class="form-control input-group-lg" type="text" name="city" title="Enter city" placeholder="Your city" value="New York"/>
+                        <input id="city" class="form-control input-group-lg" type="text" name="city" title="Enter city" placeholder="Your city"/>
                       </div>
                       <div class="form-group col-xs-6">
                          <label for="country">My country</label>
-                        <input id="country" class="form-control input-group-lg" type="text" name="country" title="Enter country" placeholder="country" value=""/>
+                        <input id="country" class="form-control input-group-lg" type="text" name="country" title="Enter country" placeholder="country"/>
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="my-info">About me</label>
-                        <textarea id="my-info" name="information" class="form-control" placeholder="Some texts about me" rows="4" cols="400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur</textarea>
+                        <textarea id="my-info" name="basicInformation" class="form-control" placeholder="Some texts about me" rows="4" cols="400"></textarea>
                       </div>
                     </div>
-                    <button class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
                   </form>
                 </div>
               </div>

@@ -102,8 +102,12 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="profile-info">
-                  <img src="images/users/user-1.jpg" alt="" class="img-responsive profile-photo" />
-                  <h3>Sarah Cruiz</h3>
+                @if(Session::get('gender')=="male")
+                  <img src="images/users/generic-user1.jpg" alt="" class="img-responsive profile-photo" />
+                @elseif(Session::get('gender')=="female") 
+                  <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
+                @endif
+                  <h3>{{Session::get('autentificateUserfirstName')}} {{Session::get('autentificateUserLastName')}}</h3>
                   <p class="text-muted">Creative Director</p>
                 </div>
               </div>
@@ -129,8 +133,12 @@
           <!--Timeline Menu for Small Screens-->
           <div class="navbar-mobile hidden-lg hidden-md">
             <div class="profile-info">
-              <img src="images/users/user-1.jpg" alt="" class="img-responsive profile-photo" />
-              <h4>Sarah Cruiz</h4>
+               @if(Session::get('gender')=="male")
+                  <img src="images/users/generic-user1.jpg" alt="" class="img-responsive profile-photo" />
+                @elseif(Session::get('gender')=="female") 
+                  <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
+                @endif
+              <h4>{{Session::get('autentificateUserfirstName')}} {{Session::get('autentificateUserLastName')}}</h4>
               <p class="text-muted">Creative Director</p>
             </div>
             <div class="mobile-menu">
