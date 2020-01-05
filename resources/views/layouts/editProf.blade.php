@@ -96,7 +96,8 @@
       ================================================= -->
       <div class="timeline">
         <div class="timeline-cover">
-
+          @show
+         @section('userImage')
           <!--Timeline Menu for Large Screens-->
           <div class="timeline-nav-bar hidden-sm hidden-xs">
             <div class="row">
@@ -107,7 +108,7 @@
                 @elseif(Session::get('gender')=="female") 
                   <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
                 @endif
-                  <h3>{{Session::get('autentificateUserfirstName')}} {{Session::get('autentificateUserLastName')}}</h3>
+                  <h3>XXX</h3>
                   <p class="text-muted">Creative Director</p>
                 </div>
               </div>

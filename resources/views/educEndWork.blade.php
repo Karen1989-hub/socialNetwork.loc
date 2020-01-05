@@ -4,6 +4,23 @@
 @parent
 @endsection
 
+@section('userImage')
+<!--Timeline Menu for Large Screens-->
+          <div class="timeline-nav-bar hidden-sm hidden-xs">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="profile-info">
+                 @if($gender=="male")
+                  <img src="images/users/generic-user1.jpg" alt="" class="img-responsive profile-photo" />
+                @elseif($gender=="female") 
+                  <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
+                @endif
+                  <h3>{{$firstName}} {{$lastName}}</h3>
+                  <p class="text-muted">Creative Director</p>
+                </div>
+              </div>
+@endsection
+
 @section('navbar')
 <div class="col-md-9">
                 <ul class="list-inline profile-menu">
@@ -78,23 +95,30 @@
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="school">My university</label>
-                        <input id="school" class="form-control input-group-lg" type="text" name="school" title="Enter School" placeholder="My School" />
+                        <input id="school" class="form-control input-group-lg" type="text" name="university" title="Enter university" placeholder="
+                        <?php
+                        if($errors->has('university')){
+                        echo $errors->first('university');
+                    } else {
+                      echo 'My university';
+                    };
+                         ?>" />
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-6">
                         <label for="date-from">From</label>
-                        <input id="date-from" class="form-control input-group-lg" type="text" name="From" title="Enter a Date" placeholder="from" />
+                        <input id="date-from" class="form-control input-group-lg" type="text" name="from" title="Enter a Date" placeholder="from" />
                       </div>
                       <div class="form-group col-xs-6">
                         <label for="date-to" class="">To</label>
-                        <input id="date-to" class="form-control input-group-lg" type="text" name="To" title="Enter a Date" placeholder="to" />
+                        <input id="date-to" class="form-control input-group-lg" type="text" name="to" title="Enter a Date" placeholder="to" />
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="edu-description">Description</label>
-                        <textarea id="edu-description" name="description" class="form-control" placeholder="Some texts about my education" rows="4" cols="400">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</textarea>
+                        <textarea id="edu-description" name="description" class="form-control" placeholder="Some texts about my education" rows="4" cols="400"></textarea>
                       </div>
                     </div>
                     <div class="row">
@@ -118,7 +142,14 @@
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="company">Company</label>
-                        <input id="company" class="form-control input-group-lg" type="text" name="company" title="Enter Company" placeholder="Company name" value="Envato Inc" />
+                        <input id="company" class="form-control input-group-lg" type="text" name="company" title="Enter Company" placeholder="
+                        <?php
+                        if($errors->has('company')){
+                        echo $errors->first('company');
+                    } else {
+                      echo 'Company name';
+                    };
+                         ?>"/>
                       </div>
                     </div>
                     <div class="row">
@@ -130,11 +161,11 @@
                     <div class="row">
                       <div class="form-group col-xs-6">
                         <label for="from-date">From</label>
-                        <input id="from-date" class="form-control input-group-lg" type="text" name="date" title="Enter a Date" placeholder="from" value="2016" />
+                        <input id="from-date" class="form-control input-group-lg" type="text" name="from" title="Enter a Date" placeholder="from" value="2016" />
                       </div>
                       <div class="form-group col-xs-6">
                         <label for="to-date" class="">To</label>
-                        <input id="to-date" class="form-control input-group-lg" type="text" name="date" title="Enter a Date" placeholder="to" value="Present" />
+                        <input id="to-date" class="form-control input-group-lg" type="text" name="to" title="Enter a Date" placeholder="to" value="Present" />
                       </div>
                     </div>
                     <div class="row">

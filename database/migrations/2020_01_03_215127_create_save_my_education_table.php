@@ -19,8 +19,8 @@ class CreateSaveMyEducationTable extends Migration
             $table->string('myUniversity');
             $table->string('educationFrom');
             $table->string('educationTo');
-            $table->string('description');
-            $table->string('graduated');
+            $table->string('description')->nullable();
+            $table->string('graduated')->nullable();
             $table->timestamps();
         });
     }

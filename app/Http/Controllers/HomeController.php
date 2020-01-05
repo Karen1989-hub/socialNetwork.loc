@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
+use App\SaveMyEducation;
 
 class HomeController extends Controller
 {
@@ -26,42 +27,82 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $id = Auth::id();
-        $request->session()->put('autentificateUserId',$id);
-        $row = User::find($id);
-        $autentificateUserfirstName = $row->firstName;
-        $autentificateUserLastName = $row->lastName; 
+        $row = User::find($id);         
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
         $gender = $row->gender;
-       
-        $request->session()->put('autentificateUserfirstName',$autentificateUserfirstName);
-        $request->session()->put('autentificateUserLastName',$autentificateUserLastName);
-        $request->session()->put('gender',$gender);        
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender];
         
-        return view('home');
+        return view('home',$arr);
     }
     public function about(){
         $id = Auth::id();
         $row = User::find($id);
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
         $aboutMe = $row->aboutMe;
-        $arr = ['aboutMe'=>$aboutMe];
+        $gender = $row->gender;
+
+        $educInform = SaveMyEducation::where('userId',$id)->get();
+        $arr = ['aboutMe'=>$aboutMe,'educInform'=>$educInform,
+        'firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender];
         return view('about',$arr);
     }
     public function album(){
-        return view('album');
+        $id = Auth::id();
+        $row = User::find($id);
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $gender = $row->gender;
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender];
+
+        return view('album',$arr);
     }
     public function friends(){
-        return view('friends');
+        $id = Auth::id();
+        $row = User::find($id);
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $gender = $row->gender;
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender];
+
+        return view('friends',$arr);
     }
-    public function editProf(){
-        return view('editProfBasic');
+    public function editProf(){    
+        $id = Auth::id();
+        $row = User::find($id);
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $gender = $row->gender;
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender]; 
+        return view('editProfBasic',$arr);
     }
     public function educEndWork(){
-        return view('educEndWork');
+        $id = Auth::id();
+        $row = User::find($id);
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $gender = $row->gender;
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender]; 
+        return view('educEndWork',$arr);
     }
     public function myInterest(){
-        return view('myInterest');
+        $id = Auth::id();
+        $row = User::find($id);
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $gender = $row->gender;
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender]; 
+        return view('myInterest',$arr);
     }
     public function changePassword(){
-        return view('changePassword');
+        $id = Auth::id();
+        $row = User::find($id);
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $gender = $row->gender;
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender]; 
+        return view('changePassword',$arr);
     }
    
 }
