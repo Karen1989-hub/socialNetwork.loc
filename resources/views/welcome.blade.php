@@ -90,7 +90,7 @@
               <!--Registration Form Contents-->
               <div class="tab-content">
                 <div class="tab-pane active" id="register">
-                  <h3>Register Now !!!</h3>                  
+                  <h3>Register Now !!</h3>                  
                   
                   <!--Register Form-->
                   <form method="POST" action="{{ route('register') }}" name="registration_form" id='registration_form' class="form-inline">
