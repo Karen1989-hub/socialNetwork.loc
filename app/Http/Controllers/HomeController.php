@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\SaveMyEducation;
+use App\WorkExperien;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,8 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $id = Auth::id();
-        $row = User::find($id);         
+        $row = User::find($id);             
+        
         $firstName = $row->firstName;
         $lastName = $row->lastName;
         $gender = $row->gender;
@@ -43,9 +45,12 @@ class HomeController extends Controller
         $aboutMe = $row->aboutMe;
         $gender = $row->gender;
 
+        $workInfo = WorkExperien::where('userId',$id)->get();  
+
         $educInform = SaveMyEducation::where('userId',$id)->get();
         $arr = ['aboutMe'=>$aboutMe,'educInform'=>$educInform,
-        'firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender];
+        'firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender,
+        'workInfo'=>$workInfo];
         return view('about',$arr);
     }
     public function album(){

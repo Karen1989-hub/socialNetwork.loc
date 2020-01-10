@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\SaveMyEducation;
+use App\WorkExperien;
 use Auth;
 use Validator;
 
@@ -111,15 +112,36 @@ class changeUserInformController extends Controller
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
-        }        
+        }   
+        
+        $id = Auth::id();
         $company = $request->input('company');
         $designation = $request->input('designation');
         $from = $request->input('from');
         $to = $request->input('to');
         $city = $request->input('city');
-        $description = $request->input('description');
- 
-        
+        $description = $request->input('description'); 
+         
+        $insert = new WorkExperien;        
+        $insert->userId = $id;                
+        $insert->company = $company;      
+        if($designation != ""){
+            $insert->designation = $designation;
+        }  
+        if($from != ""){
+            $insert->from = $from;
+        }
+        if($to != ""){
+            $insert->to = $to;
+        }    
+        if($city != ""){
+            $insert->cityTown = $city;	
+        }   
+        if($description != ""){
+            $insert->description = $description;
+        }      
+        $insert->save();
+
         return back();
     }
     

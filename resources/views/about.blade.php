@@ -78,12 +78,12 @@
                 </div>
               <!-- About Education
               ================================================= -->
+              <div class="edit-profile-container">              
+              <h4 class="grey"><i class="icon ion-ios-book-outline"></i> My education</h4>         
+              </div>
+              @foreach($educInform as $val)          
               
-              @foreach($educInform as $val)
-              <p></p>
-              
-                <div class="about-content-block">
-                  <h4 class="grey"><i class="icon ion-ios-book-outline"></i> My education</h4>
+                <div class="about-content-block">                  
                   <div class="organization">
                     <img src="images/envato.png" alt="" class="pull-left img-org" />
                     <div class="work-info">
@@ -104,27 +104,27 @@
                 ================================================= -->
                 <div class="about-content-block">
                   <h4 class="grey"><i class="ion-ios-briefcase-outline icon-in-title"></i>Work Experiences</h4>
+                  @foreach($workInfo as $val)
                   <div class="organization">
                     <img src="images/envato.png" alt="" class="pull-left img-org" />
                     <div class="work-info">
-                      <h5>Envato</h5>
-                      <p>Seller - <span class="text-grey">1 February 2013 to present</span></p>
+                      <h5>{{$val->company}}</h5>
+                      <p>{{$val->designation}}
+                      @if($val->to != null)
+                       - <span class="text-grey">{{$val->from}} 
+                      @endif
+                      @if($val->to != null)
+                      to {{$val->to}}</span></p>
+                      @endif
+                      @if($val->to != null)
+                      <p>city/Town : {{$val->cityTown}}</p>
+                      @endif
+                      @if($val->to != null)
+                      <p>description : {{$val->description}}</p>
+                      @endif
                     </div>
-                  </div>
-                  <div class="organization">
-                    <img src="images/envato.png" alt="" class="pull-left img-org" />
-                    <div class="work-info">
-                      <h5>Envato</h5>
-                      <p>Seller - <span class="text-grey">1 February 2013 to present</span></p>
-                    </div>
-                  </div>
-                  <div class="organization">
-                    <img src="images/envato.png" alt="" class="pull-left img-org" />
-                    <div class="work-info">
-                      <h5>Envato</h5>
-                      <p>Seller - <span class="text-grey">1 February 2013 to present</span></p>
-                    </div>
-                  </div>
+                  </div>                  
+                  @endforeach
                 </div>
                 <div class="about-content-block">
                   <h4 class="grey"><i class="ion-ios-location-outline icon-in-title"></i>Location</h4>

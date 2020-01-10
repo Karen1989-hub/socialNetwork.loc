@@ -155,29 +155,29 @@
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="designation">Designation</label>
-                        <input id="designation" class="form-control input-group-lg" type="text" name="designation" title="Enter designation" placeholder="designation name" value="Exclusive Author" />
+                        <input id="designation" class="form-control input-group-lg" type="text" name="designation" title="Enter designation" placeholder="designation name" />
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-6">
                         <label for="from-date">From</label>
-                        <input id="from-date" class="form-control input-group-lg" type="text" name="from" title="Enter a Date" placeholder="from" value="2016" />
+                        <input id="from-date" class="form-control input-group-lg" type="text" name="from" title="Enter a Date" placeholder="from"  />
                       </div>
                       <div class="form-group col-xs-6">
                         <label for="to-date" class="">To</label>
-                        <input id="to-date" class="form-control input-group-lg" type="text" name="to" title="Enter a Date" placeholder="to" value="Present" />
+                        <input id="to-date" class="form-control input-group-lg" type="text" name="to" title="Enter a Date" placeholder="to"  />
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="work-city">City/Town</label>
-                        <input id="work-city" class="form-control input-group-lg" type="text" name="city" title="Enter city" placeholder="Your city" value="Melbourne"/>
+                        <input id="work-city" class="form-control input-group-lg" type="text" name="city" title="Enter city" placeholder="Your city" />
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-12">
                         <label for="work-description">Description</label>
-                        <textarea id="work-description" name="description" class="form-control" placeholder="Some texts about my work" rows="4" cols="400">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate</textarea>
+                        <textarea id="work-description" name="description" class="form-control" placeholder="Some texts about my work" rows="4" cols="400"></textarea>
                       </div>
                     </div>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
