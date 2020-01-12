@@ -89,25 +89,35 @@
                   <div class="line"></div>
                 </div>
                 <div class="edit-block">
-                  <form name="update-pass" id="education" class="form-inline">
+                  <form action="{{route('saveNewPassword')}}" method="post" name="update-pass" id="education" class="form-inline">
+                    @csrf
                     <div class="row">
                       <div class="form-group col-xs-12">
-                        <label for="my-password">Old password</label>
-                        <input id="my-password" class="form-control input-group-lg" type="password" name="password" title="Enter password" placeholder="Old password"/>
+                        <label for="my-password">Old password</label>                        
+                        <input id="my-password" class="form-control input-group-lg" type="password" name="oldPassword" title="Enter password" placeholder="Old password"/>
+                        @if($errors->has('oldPassword'))
+                        <p class="text-danger">{{$errors->first('oldPassword')}}</p>
+                        @endif
                       </div>
                     </div>
                     <div class="row">
                       <div class="form-group col-xs-6">
                         <label>New password</label>
-                        <input class="form-control input-group-lg" type="password" name="password" title="Enter password" placeholder="New password"/>
+                        <input class="form-control input-group-lg" type="password" name="newPassword" title="Enter password" placeholder="New password"/>
+                        @if($errors->has('newPassword'))
+                        <p class="text-danger">{{$errors->first('newPassword')}}</p>
+                        @endif
                       </div>
                       <div class="form-group col-xs-6">
                         <label>Confirm password</label>
-                        <input class="form-control input-group-lg" type="password" name="password" title="Enter password" placeholder="Confirm password"/>
+                        <input class="form-control input-group-lg" type="password" name="newPassword_confirmation" title="Enter password" placeholder="Confirm password"/>
+                        @if($errors->has('newPassword_confirmation'))
+                        <p class="text-danger">{{$errors->first('newPassword_confirmation')}}</p>
+                        @endif
                       </div>
                     </div>
                     <p><a href="#">Forgot Password?</a></p>
-                    <button class="btn btn-primary">Update Password</button>
+                    <button type="submit" class="btn btn-primary">Update Password</button>
                   </form>
                 </div>
               </div>

@@ -8,6 +8,7 @@ use App\SaveMyEducation;
 use App\WorkExperien;
 use Auth;
 use Validator;
+use Hash;
 
 
 
@@ -25,8 +26,7 @@ class changeUserInformController extends Controller
     $city = $request->input('city');
     $country = $request->input('country');
     $basicInformation = $request->input('basicInformation');
-    //month year city country basicInformation
-    //dd($day,$month,$year,$city,$country);
+    
     $id = Auth::id();
 
     $update = User::find($id);
@@ -143,6 +143,15 @@ class changeUserInformController extends Controller
         $insert->save();
 
         return back();
+    }
+
+    public function changePassword(Request $request){
+        $id = Auth::id();
+        $newPassword = $request->input('newPassword');
+        $update = User::find($id);
+        $update->password = Hash::make($newPassword);
+        $update->save();
+     return back();
     }
     
 }
