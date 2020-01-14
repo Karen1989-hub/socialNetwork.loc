@@ -30,3 +30,4 @@ Route::post('/changeBasicInform','changeUserInformController@changeBasicInform')
 Route::post('/saveEducat','changeUserInformController@saveEducat')->name('saveEducat');
 Route::post('/saveWorkExp','changeUserInformController@saveWorkExp')->name('saveWorkExp');
 Route::post('/saveNewPassword','changeUserInformController@changePassword')->middleware('CheckOldPassword')->name('saveNewPassword');
+Route::post('/changeProfImage','changeUserInformController@changeProfImage')->name('changeProfImage');

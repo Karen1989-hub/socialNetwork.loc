@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\SaveMyEducation;
 use App\WorkExperien;
+use App\ProfilImage;
 use Auth;
 use Validator;
 use Hash;
@@ -153,5 +154,20 @@ class changeUserInformController extends Controller
         $update->save();
      return back();
     }
-    
+
+    public function changeProfImage(Request $request){ 
+         $file = $request->file('file1');
+         $id = Auth::id();
+         $row = ProfilImage::where('userId',$id)->get();
+         $oldUserProfImg = $row[0]->imageName;
+         if(empty($row)){
+             dd('ok');
+         }
+         //$file->move('images/users',$file->getClientOriginalName());
+         //ProfilImage::firstOrCreate('')
+        //unlink(public_path("images/users/039503507456_n.jpg"));
+        
+        // dd($file->getClientOriginalName());
+        return back();
+    }    
 }

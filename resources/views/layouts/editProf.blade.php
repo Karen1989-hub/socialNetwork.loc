@@ -31,6 +31,11 @@
         <link rel="shortcut icon" type="image/png" href="images/fav.png"/>
 </head>
 <body>
+<style>
+.btnFile{
+  
+}
+</style>
 
     <!-- Header
     ================================================= -->
@@ -178,7 +183,7 @@
               <div class="edit-profile-container">
                 <div class="block-title">
                   <h4 class="grey"><i class="icon ion-android-checkmark-circle"></i>Edit basic information</h4>
-                  <p></p>
+                  
                   <div class="line"></div>
                 </div>
                 <div class="edit-block">
@@ -303,9 +308,33 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Save Changes</button>
                   </form>
+                </div>              
+
+            <!-- Change profil image
+              ================================================= -->
+            <div class="edit-block">
+            <div class="block-title">
+                  <h4 class="grey"><i class="icon ion-android-checkmark-circle"></i>Change profile image</h4>
+                  
+                  <div class="line"></div>
+                </div>
+                  <form method="post" action="{{route('changeProfImage')}}"  class="form-inline" enctype="multipart/form-data">
+                    @csrf                                 
+                    
+                    <div class="form-group col-sm-12">
+                      <div class="row">                      
+                      <input type="file" name="file1" class="btn btn-primary btnFile">                     
+                      <button type="sumbit" class="btn btn-primary col-sm-4">Add</button>
+                      </div>
+                    </div>             
+                    
+                  </form>         
+
                 </div>
               </div>
             </div>
+            
+
             <div class="col-md-2 static">
               
               <!--Sticky Timeline Activity Sidebar-->

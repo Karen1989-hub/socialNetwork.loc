@@ -7,6 +7,7 @@ use Auth;
 use App\User;
 use App\SaveMyEducation;
 use App\WorkExperien;
+use App\ProfilImage;
 
 class HomeController extends Controller
 {
@@ -80,6 +81,14 @@ class HomeController extends Controller
         $lastName = $row->lastName;
         $gender = $row->gender;
         $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender]; 
+
+        //insert null in userImage
+        ProfilImage::firstOrCreate([
+            'userId' => $id,
+            'imageName' =>'null'
+        ]);
+
+
         return view('editProfBasic',$arr);
     }
     public function educEndWork(){
