@@ -10,11 +10,9 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="profile-info">
-                @if($gender=="male")
-                  <img src="images/users/generic-user1.jpg" alt="" class="img-responsive profile-photo" />
-                @elseif($gender=="female") 
-                  <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
-                @endif
+                
+                  <img src="images/users/{{$userImg}}" alt="" class="img-responsive profile-photo" />
+                
                   <h3>{{$firstName}} {{$lastName}}</h3>
                   <p class="text-muted">Creative Director</p>
                 </div>

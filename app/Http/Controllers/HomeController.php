@@ -29,13 +29,29 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $id = Auth::id();
-        $row = User::find($id);             
+        //insert null in userImage
+        ProfilImage::firstOrCreate([
+            'userId' => $id,
+            'imageName' =>'null'        
+            
+        ]);
         
+        $row = User::find($id);         
         $firstName = $row->firstName;
         $lastName = $row->lastName;
         $gender = $row->gender;
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender];
-        
+
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg];        
         return view('home',$arr);
     }
     public function about(){
@@ -46,21 +62,44 @@ class HomeController extends Controller
         $aboutMe = $row->aboutMe;
         $gender = $row->gender;
 
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
         $workInfo = WorkExperien::where('userId',$id)->get();  
 
         $educInform = SaveMyEducation::where('userId',$id)->get();
         $arr = ['aboutMe'=>$aboutMe,'educInform'=>$educInform,
-        'firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender,
+        'firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg,
         'workInfo'=>$workInfo];
         return view('about',$arr);
     }
-    public function album(){
-        $id = Auth::id();
+    public function album(){     
+
+        $id = Auth::id();      
+
         $row = User::find($id);
         $firstName = $row->firstName;
         $lastName = $row->lastName;
         $gender = $row->gender;
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender];
+
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg];
 
         return view('album',$arr);
     }
@@ -70,7 +109,18 @@ class HomeController extends Controller
         $firstName = $row->firstName;
         $lastName = $row->lastName;
         $gender = $row->gender;
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender];
+
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg];
 
         return view('friends',$arr);
     }
@@ -80,14 +130,18 @@ class HomeController extends Controller
         $firstName = $row->firstName;
         $lastName = $row->lastName;
         $gender = $row->gender;
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender]; 
 
-        //insert null in userImage
-        ProfilImage::firstOrCreate([
-            'userId' => $id,
-            'imageName' =>'null'
-        ]);
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
 
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg];      
 
         return view('editProfBasic',$arr);
     }
@@ -97,7 +151,18 @@ class HomeController extends Controller
         $firstName = $row->firstName;
         $lastName = $row->lastName;
         $gender = $row->gender;
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender]; 
+
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg]; 
         return view('educEndWork',$arr);
     }
     public function myInterest(){
@@ -106,7 +171,18 @@ class HomeController extends Controller
         $firstName = $row->firstName;
         $lastName = $row->lastName;
         $gender = $row->gender;
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender]; 
+
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg]; 
         return view('myInterest',$arr);
     }
     public function changePassword(){
@@ -115,7 +191,18 @@ class HomeController extends Controller
         $firstName = $row->firstName;
         $lastName = $row->lastName;
         $gender = $row->gender;
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'gender'=>$gender]; 
+
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg]; 
         return view('changePassword',$arr);
     }
    

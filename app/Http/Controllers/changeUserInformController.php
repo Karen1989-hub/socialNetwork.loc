@@ -157,15 +157,34 @@ class changeUserInformController extends Controller
 
     public function changeProfImage(Request $request){ 
          $file = $request->file('file1');
+         
          $id = Auth::id();
          $row = ProfilImage::where('userId',$id)->get();
          $oldUserProfImg = $row[0]->imageName;
-         if(empty($row)){
-             dd('ok');
+         
+         if($oldUserProfImg == "null"){
+            $file->move('images/users',$file->getClientOriginalName());
+
+             
+            $update = ProfilImage::find($row[0]->id);
+            $update->imageName = $file->getClientOriginalName();
+            $update->save();    
+            
+         } else {
+             //jjum em hin nkar@
+            unlink(public_path("images/users/".$oldUserProfImg));
+
+            $file->move('images/users',$file->getClientOriginalName());
+
+            $update = ProfilImage::find($row[0]->id);
+            $update->imageName = $file->getClientOriginalName();
+            $update->save();
+            
          }
+        
          //$file->move('images/users',$file->getClientOriginalName());
          //ProfilImage::firstOrCreate('')
-        //unlink(public_path("images/users/039503507456_n.jpg"));
+        //unlink(public_path("images/users/".$file->getClientOriginalName()));
         
         // dd($file->getClientOriginalName());
         return back();
