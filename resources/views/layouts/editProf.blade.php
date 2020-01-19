@@ -154,7 +154,7 @@
                   <li><a href="{{route('album')}}">Album</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
                   <li><a href="">Chatroom</a></li>
-                  <li class="active"><a href="{{route('editProf')}}">Adit profile</a></li>
+                  <li class="active"><a href="{{route('editProf')}}">Edit profile</a></li>
               </ul>
               <button class="btn-primary">Add Friend</button>
             </div>
@@ -335,36 +335,9 @@
             </div>
             
 
-            <div class="col-md-2 static">
+            <div class="col-md-2 static">        
               
-              <!--Sticky Timeline Activity Sidebar-->
-              <div id="sticky-sidebar">
-                <h4 class="grey">Sarah's activity</h4>
-                <div class="feed-item">
-                  <div class="live-activity">
-                    <p><a href="#" class="profile-link">Sarah</a> Commended on a Photo</p>
-                    <p class="text-muted">5 mins ago</p>
-                  </div>
-                </div>
-                <div class="feed-item">
-                  <div class="live-activity">
-                    <p><a href="#" class="profile-link">Sarah</a> Has posted a photo</p>
-                    <p class="text-muted">an hour ago</p>
-                  </div>
-                </div>
-                <div class="feed-item">
-                  <div class="live-activity">
-                    <p><a href="#" class="profile-link">Sarah</a> Liked her friend's post</p>
-                    <p class="text-muted">4 hours ago</p>
-                  </div>
-                </div>
-                <div class="feed-item">
-                  <div class="live-activity">
-                    <p><a href="#" class="profile-link">Sarah</a> has shared an album</p>
-                    <p class="text-muted">a day ago</p>
-                  </div>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>

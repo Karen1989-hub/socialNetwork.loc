@@ -8,6 +8,7 @@ use App\User;
 use App\SaveMyEducation;
 use App\WorkExperien;
 use App\ProfilImage;
+use App\Post;
 
 class HomeController extends Controller
 {
@@ -51,7 +52,12 @@ class HomeController extends Controller
             $userImg = $ProfImage[0]->imageName;
         };
 
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg];        
+        //get all posts
+        $allPosts = Post::orderByDesc('id')->get();
+        
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg,
+        'allPosts'=>$allPosts];        
         return view('home',$arr);
     }
     public function about(){

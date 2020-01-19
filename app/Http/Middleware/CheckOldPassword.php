@@ -46,7 +46,7 @@ class CheckOldPassword
             
             return $next($request);
         } else {
-            dd('sxal e');
+            return back();
         }
         
         

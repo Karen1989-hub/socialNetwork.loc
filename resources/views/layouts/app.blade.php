@@ -18,7 +18,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700,700i" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- Styles -->     
         <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />		
         <link rel="stylesheet" href="{{asset('css/style.css')}}" />		
@@ -121,7 +121,7 @@
                   <li><a href="{{route('album')}}">Album</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
                   <li><a href="">Chatroom</a></li>
-                  <li><a href="{{route('editProf')}}">Adit profile</a></li>
+                  <li><a href="{{route('editProf')}}">Edit profile</a></li>
                   
                 </ul>
                 <ul class="follow-me list-inline">                  

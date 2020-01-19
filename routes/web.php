@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//get views controller
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/about','HomeController@about')->name('about');
 Route::get('/album','HomeController@album')->name('album');
@@ -26,8 +27,12 @@ Route::get('/educEndWork','HomeController@educEndWork')->name('educEndWork');
 Route::get('/myInterest','HomeController@myInterest')->name('myInterest');
 Route::get('/changePassword','HomeController@changePassword')->name('changePassword');
 
+//profile information controller 
 Route::post('/changeBasicInform','changeUserInformController@changeBasicInform')->name('changeBasicInform');
 Route::post('/saveEducat','changeUserInformController@saveEducat')->name('saveEducat');
 Route::post('/saveWorkExp','changeUserInformController@saveWorkExp')->name('saveWorkExp');
 Route::post('/saveNewPassword','changeUserInformController@changePassword')->middleware('CheckOldPassword')->name('saveNewPassword');
 Route::post('/changeProfImage','changeUserInformController@changeProfImage')->name('changeProfImage');
+
+//create post cotroller
+Route::post('createPost','PostCreateController@createNewPost')->name('createNewPost');
