@@ -179,4 +179,23 @@ $('.input-file').each(function () {
         fileName ? $label.addClass('has-file').find('.js-fileName').html(fileName) : $label.removeClass('has-file').html(labelVal);
     });
 });
+
+//AJAX
+$('#likeForm').click(function(event){
+    event.preventDefault();
+    
+    $.ajax({
+        type: 'POST',
+        url: 'insertLike',
+        data: new FormData(this),
+        cache: false,
+        contentType: false,
+        processData: false,
+
+        success: function (e) {
+            
+            console.log('ajaxOK');
+        }
+    });
+})
  

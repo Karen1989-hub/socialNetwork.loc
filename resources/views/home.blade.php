@@ -34,7 +34,7 @@
               ================================================= -->
               
 
-
+              <h4 class="grey"> Аdd post</h4>
               <div class="create-post">
                 <div class="row">
                 <form action="{{route('createNewPost')}}" method="post" enctype='multipart/form-data'>
@@ -42,9 +42,9 @@
                 
                 <input type="hidden" name="userName" value="{{$firstName}}">
                   <div class="col-md-7 col-sm-7">
-                    <div class="form-group">                    
-                      <img src="images/users/user-1.jpg" alt="" class="profile-photo-md" />
-                      <textarea name="texts" id="exampleTextarea" cols="30" rows="1" class="form-control" placeholder="Write what you wish"></textarea>
+                    <div class="form-group">                
+                      
+                      <textarea name="texts" id="exampleTextarea" cols="35" rows="2" class="form-control" placeholder="Write what you wish"></textarea>
                     </div>
                   </div>
                   <div class="col-md-5 col-sm-5">
@@ -71,6 +71,7 @@
               <!-- Post Content
               ================================================= -->
               @foreach($allPosts as $val)
+              @if($val->aboutPost!=null || $val->postImage!=null)
               <div class="post-content">
 
                 <!--Post Date-->
@@ -78,18 +79,29 @@
                   <h5>{{$val->userName}}</h5>
                   <p class="text-grey">{{$val->created_at}}</p>
                 </div><!--Post Date End-->
-
+                @if($val->postImage!=null)
                 <img src="images/post-images/{{$val->postImage}}" alt="post-image" class="img-responsive post-image" />
+                @endif
                 <div class="post-container">                 
                   <div class="post-detail">                   
                     <div class="reaction">
-                      <a class="btn text-green"><i class="icon ion-thumbsup"></i> 13</a>
-                      <a class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</a>
+                    <form id='likeForm' style="float:left" action="">
+                    @csrf
+                      <label class="btn text-green"><i class="icon ion-thumbsup"></i><span  >13</span></label>
+                      <input type="submit" hidden>
+                    </form>
+                    
+                    <form id='dislikeForm' style="float:left" action="">
+                    @csrf
+                      <label class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</label>
+                      <input type="submit" hidden>
+                    </form>
                     </div>
                     <div class="line-divider"></div>
                     <div class="post-text">
+                      @if($val->aboutPost!=null)
                       <p>{{$val->aboutPost}}</p>
-                      
+                      @endif
                     </div>
                     <div class="line-divider"></div>
                     <div class="post-comment">
@@ -107,6 +119,7 @@
                   </div>
                 </div>
               </div>
+              @endif
               @endforeach            
 
              

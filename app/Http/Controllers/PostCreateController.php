@@ -14,17 +14,25 @@ class PostCreateController extends Controller
         $postText = $request->input('texts');
         $postImage = $request->file('postFile');       
 
+        if($postText!="" || $postImage!=""){
         $insert = new Post;
         $insert->postsUserId = $userId;
         $insert->userName = $userName;
-        $insert->postImage = $postImage->getClientOriginalName();
-        $insert->aboutPost = $postText;
-        $insert->save();
+        if($postImage!=""){
+            $insert->postImage = $postImage->getClientOriginalName();
+            $postImage->move('images/post-images',$postImage->getClientOriginalName());
+        }
+        if($postText!=""){
+            $insert->aboutPost = $postText;
+        }           
+        $insert->save();               
+        }
        
-        $postImage->move('images/post-images',$postImage->getClientOriginalName());
-
-
-       // dd($userId,$userName,$postText,$postImage);
         return back();
+    }
+
+    public function insertLike(){
+       // return response()->json(['msg'=> "namak karenic"], 200);
+       return back();
     }
 }
