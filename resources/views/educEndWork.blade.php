@@ -24,14 +24,14 @@
                 <ul class="list-inline profile-menu">
                   <li><a href="{{route('home')}}">Timeline</a></li>
                   <li><a href="{{route('about')}}">About</a></li>
-                  <li><a href="{{route('album')}}">Album</a></li>
+                  <!-- <li><a href="{{route('album')}}">Album</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
-                  <li><a href="">Chatroom</a></li>
+                  <li><a href="">Chatroom</a></li> -->
                   <li class="active"><a href="{{route('editProf')}}" class="active">Edit profile</a></li>
                   
                 </ul>
                 <ul class="follow-me list-inline">                  
-                  <li><button class="btn-primary">Edd Friend</button></li>
+                  <!-- <li><button class="btn-primary">Edd Friend</button></li> -->
                 </ul>
               </div>
             </div>

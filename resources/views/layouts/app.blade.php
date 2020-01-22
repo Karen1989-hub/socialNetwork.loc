@@ -52,8 +52,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right main-menu">                     
-              
-              <li class="dropdown">
+               
+               <!-- all pages menu -->
+              <!-- <li class="dropdown">
                 <a href="#" class="dropdown-toggle pages" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">All Pages <span><img src="images/down-arrow.png" alt="" /></span></a>
                 <ul class="dropdown-menu page-list">
                   
@@ -67,7 +68,8 @@
                   <li><a href="edit-profile-basic.html">Edit Profile</a></li>
                   <li><a href="contact.html">Contact Us</a></li>                 
                 </ul>
-              </li>
+              </li> -->
+              <!-- all pages menu end-->
               <li class="dropdown"><a class="dropdown-item" href="{{ route('logout') }}"
         onclick="event.preventDefault();
          document.getElementById('logout-form').submit();">
@@ -118,14 +120,14 @@
                 <ul class="list-inline profile-menu">
                   <li><a href="{{route('home')}}" class="active">Timeline</a></li>
                   <li><a href="{{route('about')}}">About</a></li>
-                  <li><a href="{{route('album')}}">Album</a></li>
-                  <li><a href="{{route('friends')}}">Friends</a></li>
-                  <li><a href="">Chatroom</a></li>
+                  <!-- <li><a href="{{route('album')}}">Album</a></li> -->
+                  <!-- <li><a href="{{route('friends')}}">Friends</a></li> -->
+                  <!-- <li><a href="">Chatroom</a></li> -->
                   <li><a href="{{route('editProf')}}">Edit profile</a></li>
                   
                 </ul>
                 <ul class="follow-me list-inline">                  
-                  <li><button class="btn-primary">Add Friend</button></li>
+                  <!-- <li><button class="btn-primary">Add Friend</button></li> -->
                 </ul>
               </div>
             </div>
@@ -146,12 +148,12 @@
               <ul class="list-inline">
                 <li><a href="{{route('home')}}" class="active">Timeline</a></li>
                   <li><a href="{{route('about')}}">About</a></li>
-                  <li><a href="{{route('album')}}">Album</a></li>
+                  <!-- <li><a href="{{route('album')}}">Album</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
-                  <li><a href="">Chatroom</a></li>
+                  <li><a href="">Chatroom</a></li> -->
                   <li><a href="{{route('editProf')}}">Adit profile</a></li>
               </ul>
-              <button class="btn-primary">Add Friend</button>
+              <!-- <button class="btn-primary">Add Friend</button> -->
             </div>
           </div><!--Timeline Menu for Small Screens End-->
 
