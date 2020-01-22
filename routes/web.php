@@ -36,4 +36,15 @@ Route::post('/changeProfImage','changeUserInformController@changeProfImage')->na
 
 //create post cotroller
 Route::post('createPost','PostCreateController@createNewPost')->name('createNewPost');
-Route::post('insertLike','PostCreateController@insertLike')->name('insertLike');
+Route::post('/insertLike','PostCreateController@insertLike')->name('insertLike');
+Route::post('/insertdisLike','PostCreateController@insertdisLike')->name('insertdisLike');
+Route::post('/getComment','PostCreateController@getComment')->name('getComment');
+
+
+
+
+
+
+
+
+

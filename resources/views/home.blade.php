@@ -85,25 +85,44 @@
                 <div class="post-container">                 
                   <div class="post-detail">                   
                     <div class="reaction">
-                    <form id='likeForm' style="float:left" action="">
+                    <form class='likeForm' style="float:left" action="">
                     @csrf
-                      <label class="btn text-green"><i class="icon ion-thumbsup"></i><span  >13</span></label>
+                      <input type="text" value="{{$val->id}}" name="postId" hidden>
+                      <label class="btn text-green"><i class="icon ion-thumbsup"></i><span class="{{$val->id}}"> 
+                      @if($val->likeCount == null)
+                      0
+                      @else
+                      {{$val->likeCount}}
+                      @endif
+                       </span>
+                       </label>
                       <input type="submit" hidden>
                     </form>
                     
-                    <form id='dislikeForm' style="float:left" action="">
+                    <form class='dislikeForm' style="float:left" >
                     @csrf
-                      <label class="btn text-red"><i class="fa fa-thumbs-down"></i> 0</label>
+                      <input type="text" value="{{$val->id}}" name="postId" hidden>
+                      <label class="btn text-red"><i class="fa fa-thumbs-down"></i><span class="{{$val->id}}dislike">
+                      @if($val->dislikeCount == null)                      
+                      0
+                      @else
+                      {{$val->dislikeCount}}
+                      @endif
+                      </span>
+                      </label>
                       <input type="submit" hidden>
                     </form>
                     </div>
                     <div class="line-divider"></div>
+                    
                     <div class="post-text">
                       @if($val->aboutPost!=null)
                       <p>{{$val->aboutPost}}</p>
                       @endif
                     </div>
-                    <div class="line-divider"></div>
+
+                    
+                    <!-- <div class="line-divider"></div>
                     <div class="post-comment">
                       <img src="images/users/user-11.jpg" alt="" class="profile-photo-sm" />
                       <p><a href="timeline.html" class="profile-link">Diana </a><i class="em em-laughing"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
@@ -112,10 +131,17 @@
                       <img src="images/users/user-4.jpg" alt="" class="profile-photo-sm" />
                       <p><a href="timeline.html" class="profile-link">John</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
                     </div>
+                    <div class="line-divider"></div>
+                    <form class="com" action="{{route('getComment')}}" method="post">
+                    @csrf                       
                     <div class="post-comment">
                       <img src="images/users/user-1.jpg" alt="" class="profile-photo-sm" />
-                      <input type="text" class="form-control" placeholder="Post a comment">
+                      <input type="text" class="form-control" placeholder="Post a comment" name="commentT">
                     </div>
+                    <input type="text"  value="{{$val->id}}" name="postId1">
+                    <label for="comment"><a>view comments...</a></label> 
+                    <input type="submit" id="comment" hidden> 
+                    </form> -->
                   </div>
                 </div>
               </div>

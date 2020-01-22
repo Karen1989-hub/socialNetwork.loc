@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Post;
+use App\Like;
 
 class PostCreateController extends Controller
 {
@@ -31,8 +32,40 @@ class PostCreateController extends Controller
         return back();
     }
 
-    public function insertLike(){
-       // return response()->json(['msg'=> "namak karenic"], 200);
-       return back();
+    public function insertLike(Request $request){
+        $postId = $request->input('postId');
+        $id = Auth::id();
+
+        Like::firstOrCreate(['toWhom'=>$postId,'from'=>$id,'like'=>'like']);   
+        
+        $count = Like::where('toWhom',$postId)->where('like','like')->count();
+
+        $update = Post::find($postId);
+        $update->likeCount = $count;
+        $update->save();            
+        
+        return response()->json(['msg'=> $count,'mm'=>$postId], 200);
+       //return back();
+    }
+
+    public function insertdisLike(Request $request){
+        $postId = $request->input('postId');
+        $id = Auth::id();
+
+        Like::firstOrCreate(['toWhom'=>$postId,'from'=>$id,'dislike'=>'dislike']);
+
+        $count = Like::where('toWhom',$postId)->where('dislike','dislike')->count();
+
+        $update = Post::find($postId);
+        $update->dislikeCount = $count;
+        $update->save();
+
+        return response()->json(['msg'=> $count,'mm'=>$postId], 200);
+    }
+
+    public function getComment(Request $request){
+        $postId = $request->input('postId1');
+        $comment = $request->input('commentT');
+        dd($comment);
     }
 }

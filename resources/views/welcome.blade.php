@@ -118,6 +118,12 @@
                       </div>
                     </div>
                     <div class="row">
+                      <div class="form-group col-xs-12">
+                        <label for="password" class="sr-only">Confirm Password</label>
+                        <input id="confpassword" class="form-control input-group-lg" type="password" value="{{ old('password') }}" required autocomplete="name" autofocus name="password_confirmation" title="Enter password" placeholder="Confirm Password"/>
+                      </div>
+                    </div>
+                    <div class="row">
                       <p class="birth"><strong>Date of Birth</strong></p>
                       <div class="form-group col-sm-3 col-xs-6">
                         <label for="day" class="sr-only"></label>

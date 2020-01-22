@@ -9,6 +9,7 @@ use App\SaveMyEducation;
 use App\WorkExperien;
 use App\ProfilImage;
 use App\Post;
+use App\Like;
 
 class HomeController extends Controller
 {
@@ -54,6 +55,9 @@ class HomeController extends Controller
 
         //get all posts
         $allPosts = Post::orderByDesc('id')->get();
+        
+        //get posts likes count
+       // $postLikeCount = Like::where('toWhom'=>)
         
 
         $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg,

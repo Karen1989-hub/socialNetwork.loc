@@ -180,22 +180,44 @@ $('.input-file').each(function () {
     });
 });
 
-//AJAX
-$('#likeForm').click(function(event){
+//AJAX insert like
+$('.likeForm').click(function(event){
     event.preventDefault();
     
     $.ajax({
         type: 'POST',
-        url: 'insertLike',
+        url: '/insertLike',
         data: new FormData(this),
         cache: false,
         contentType: false,
         processData: false,
 
         success: function (e) {
-            
-            console.log('ajaxOK');
+            $(`.${e.mm}`).html(e.msg);
+            console.log(e.msg);
+           // console.log(e.msg);
         }
     });
-})
- 
+});
+
+//AJAX insert dislike
+$('.dislikeForm').click(function (event) {
+    event.preventDefault();
+
+    $.ajax({
+        type: 'POST',
+        url: '/insertdisLike',
+        data: new FormData(this),
+        cache: false,
+        contentType: false,
+        processData: false,
+
+        success: function (e) {
+            $(`.${e.mm}dislike`).html(e.msg);
+            console.log(e.msg);
+            // console.log(e.msg);
+        }
+    });
+});
+
+

@@ -2352,6 +2352,8 @@ ul.contact li i{
 }
 
 
+
+
 /*==================================================
   CSS for width 992px
   ==================================================*/
@@ -2731,3 +2733,8 @@ ul.contact li i{
 .example-2 .input-file + .js-labelFile{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 0px;cursor:pointer}
 .example-2 .input-file + .js-labelFile .icon:before{content:"\f093"}
 .example-2 .input-file + .js-labelFile.has-file .icon:before{content:"\f00c";color:#5AAC7B}
+
+
+a{
+  cursor: pointer;
+}
