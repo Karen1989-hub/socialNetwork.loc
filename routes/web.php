@@ -24,8 +24,8 @@ Route::get('/album','HomeController@album')->name('album');
 Route::get('/friends','HomeController@friends')->name('friends');
 Route::get('/editProf','HomeController@editProf')->name('editProf');
 Route::get('/educEndWork','HomeController@educEndWork')->name('educEndWork');
-Route::get('/myInterest','HomeController@myInterest')->name('myInterest');
 Route::get('/changePassword','HomeController@changePassword')->name('changePassword');
+Route::get('/search',"HomeController@searchUser")->name('searchUser');
 
 //profile information controller 
 Route::post('/changeBasicInform','changeUserInformController@changeBasicInform')->name('changeBasicInform');

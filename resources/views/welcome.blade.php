@@ -73,7 +73,7 @@
             <div class="intro-texts">
             	<h1 class="text-white">Make Cool Friends !!!</h1>
             	<p>Friend Finder is a social network template that can be used to connect people. The template offers Landing pages, News Feed, Image/Video Feed, Chat Box, Timeline and lot more. <br /> <br />Why are you waiting for? Buy it now.</p>
-              <button class="btn btn-primary">Learn More</button>
+              <!-- <button class="btn btn-primary">Learn More</button> -->
             </div>
           </div>
         	<div class="col-sm-6 col-sm-offset-1">
@@ -219,7 +219,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Register Now</button>
                   </form><!--Register Now Form Ends-->
-                  <p><a href="#">Already have an account?</a></p>
+                  <!-- <p><a href="#">Already have an account?</a></p> -->
                   
                 </div><!--Registration Form Contents Ends-->
                 
@@ -255,7 +255,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary">Login Now</button>
                   </form><!--Login Form Ends--> 
-                  <p><a href="#">Forgot Password?</a></p>
+                  <!-- <p><a href="#">Forgot Password?</a></p> -->
                   
                 </div>
               </div>
@@ -266,13 +266,13 @@
           <div class="col-sm-6 col-sm-offset-6">
           
             <!--Social Icons-->
-            <ul class="list-inline social-icons">
+            <!-- <ul class="list-inline social-icons">
               <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
               <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
               <li><a href="#"><i class="icon ion-social-googleplus"></i></a></li>
               <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
               <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
-            </ul>
+            </ul> -->
           </div>
         </div>
       </div>

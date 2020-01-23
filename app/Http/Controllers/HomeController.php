@@ -175,26 +175,7 @@ class HomeController extends Controller
         $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg]; 
         return view('educEndWork',$arr);
     }
-    public function myInterest(){
-        $id = Auth::id();
-        $row = User::find($id);
-        $firstName = $row->firstName;
-        $lastName = $row->lastName;
-        $gender = $row->gender;
-
-        //get Profile image
-        $ProfImage = ProfilImage::where('userId',$id)->get();     
-        if($ProfImage[0]->imageName=="null" && $gender == "male"){
-            $userImg = "generic-user1.jpg";
-        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
-            $userImg = "generic-user-female.png";
-        } else if($ProfImage[0]->imageName!="null"){
-            $userImg = $ProfImage[0]->imageName;
-        };
-
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg]; 
-        return view('myInterest',$arr);
-    }
+    
     public function changePassword(){
         $id = Auth::id();
         $row = User::find($id);
@@ -214,6 +195,10 @@ class HomeController extends Controller
 
         $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg]; 
         return view('changePassword',$arr);
+    }
+
+    public function searchUser(){
+        dd('search');
     }
    
 }

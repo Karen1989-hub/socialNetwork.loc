@@ -11,7 +11,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Laravel'</title>
+    <title>Laravel</title>
 
     <!-- Scripts -->
     
@@ -80,11 +80,13 @@
     </form>
      </li>
             </ul>
-            <form class="navbar-form navbar-right hidden-sm">
+            <form action="{{route('searchUser')}}" class="navbar-form navbar-right hidden-sm">
               <div class="form-group">
                 <i class="icon ion-android-search"></i>
-                <input type="text" class="form-control" placeholder="Search friends, photos, videos">
+                <input type="text" class="form-control" placeholder="Search friends">
+                
               </div>
+              <!-- <input type="submit" id="searchInp" > -->
             </form>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->

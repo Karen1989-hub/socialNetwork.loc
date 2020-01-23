@@ -125,9 +125,9 @@
                 <ul class="list-inline profile-menu">
                   <li><a href="{{route('home')}}" class="active">Timeline</a></li>
                   <li><a href="{{route('about')}}">About</a></li>
-                  <li><a href="{{route('album')}}">Album</a></li>
+                  <!-- <li><a href="{{route('album')}}">Album</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
-                  <li><a href="">Chatroom</a></li>
+                  <li><a href="">Chatroom</a></li> -->
                   <li class="active"><a href="{{route('editProf')}}">Adit profile</a></li>
                   
                 </ul>
@@ -173,7 +173,7 @@
               <ul class="edit-menu">
               	<li class="active"><i class="icon ion-ios-information-outline"></i><a href="{{route('editProf')}}">Basic Information</a></li>
               	<li><i class="icon ion-ios-briefcase-outline"></i><a href="{{route('educEndWork')}}">Education and Work</a></li>
-              	<li><i class="icon ion-ios-heart-outline"></i><a href="{{route('myInterest')}}">My Interests</a></li>                
+              	              
               	<li><i class="icon ion-ios-locked-outline"></i><a href="{{route('changePassword')}}">Change Password</a></li>
               </ul>
             </div>
