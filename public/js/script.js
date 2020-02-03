@@ -221,3 +221,26 @@ $('.dislikeForm').click(function (event) {
 });
 
 
+//findUsers
+// $('#searchForm').submit(function(event){
+//     event.preventDefault();
+//         $.ajax({
+//             type: 'POST',
+//             url: '/findUser',
+//             data: new FormData(this),
+//             cache: false,
+//             contentType: false,
+//             processData: false,
+
+//             success: function(e){
+                
+//                 //document.location.href = "/showUsers";
+//                 console.log(e.user);
+//                 console.log(e.name);
+//             }
+//         });    
+    
+    
+// });
+
+

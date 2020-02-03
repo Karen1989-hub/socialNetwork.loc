@@ -3,7 +3,7 @@
 @section('header')
 @parent
 @endsection
-
+ 
 @section('userImage')
 <!--Timeline Menu for Large Screens-->
           <div class="timeline-nav-bar hidden-sm hidden-xs">

@@ -85,12 +85,17 @@
     </form>
      </li>
             </ul>
-            <form class="navbar-form navbar-right hidden-sm">
-              <div class="form-group">
-                <i class="icon ion-android-search"></i>
-                <input type="text" class="form-control" placeholder="Search friends, photos, videos">
+            
+            <form action="{{route('showUsers')}}" id="searchForm" class="navbar-form navbar-right hidden-sm">
+            @csrf
+              <div class="form-group">              
+                
+                <input id="searchUser" type="text" name="searchUser" class="form-control" placeholder="Search friends">              
+                <label for="find" style="color:#fff;float:left" class="btn btn-outline-primary"><i class="icon ion-android-search"></i></label>
+                <input id="find" type="submit"  hidden>
               </div>
             </form>
+            
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
       </nav>
@@ -132,7 +137,7 @@
                   
                 </ul>
                 <ul class="follow-me list-inline">                  
-                  <li><button class="btn-primary">Add Friend</button></li>
+                  <!-- <li><button class="btn-primary">Add Friend</button></li> -->
                 </ul>
               </div>
             </div>
@@ -141,11 +146,7 @@
           <!--Timeline Menu for Small Screens-->
           <div class="navbar-mobile hidden-lg hidden-md">
             <div class="profile-info">
-               @if(Session::get('gender')=="male")
-                  <img src="images/users/generic-user1.jpg" alt="" class="img-responsive profile-photo" />
-                @elseif(Session::get('gender')=="female") 
-                  <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
-                @endif
+                <img src="images/users/{{$userImg}}" alt="" class="img-responsive profile-photo" />
               <h4>{{Session::get('autentificateUserfirstName')}} {{Session::get('autentificateUserLastName')}}</h4>
               <p class="text-muted">Creative Director</p>
             </div>
@@ -153,12 +154,12 @@
               <ul class="list-inline">
                 <li><a href="{{route('home')}}">Timeline</a></li>
                   <li><a href="{{route('about')}}">About</a></li>
-                  <li><a href="{{route('album')}}">Album</a></li>
+                  <!-- <li><a href="{{route('album')}}">Album</a></li> -->
                   <li><a href="{{route('friends')}}">Friends</a></li>
-                  <li><a href="">Chatroom</a></li>
-                  <li class="active"><a href="{{route('editProf')}}">Edit profile</a></li>
+                  <!-- <li><a href="">Chatroom</a></li> -->
+                  <li class="active"><a href="{{route('editProf')}}" class="active">Edit profile</a></li>
               </ul>
-              <button class="btn-primary">Add Friend</button>
+              <!-- <button class="btn-primary">Add Friend</button> -->
             </div>
           </div><!--Timeline Menu for Small Screens End-->
 

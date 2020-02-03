@@ -9,7 +9,7 @@
           <div class="timeline-nav-bar hidden-sm hidden-xs">
             <div class="row">
               <div class="col-md-3">
-                <div class="profile-info">
+                <div class="profile-info"> 
                 
                   <img src="images/users/{{$userImg}}" alt="" class="img-responsive profile-photo" />
                 

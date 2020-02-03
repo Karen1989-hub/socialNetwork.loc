@@ -26,6 +26,8 @@ Route::get('/editProf','HomeController@editProf')->name('editProf');
 Route::get('/educEndWork','HomeController@educEndWork')->name('educEndWork');
 Route::get('/changePassword','HomeController@changePassword')->name('changePassword');
 Route::get('/search',"HomeController@searchUser")->name('searchUser');
+Route::get('usersList','HomeController@getUsersList')->name('usersList');
+
 
 //profile information controller 
 Route::post('/changeBasicInform','changeUserInformController@changeBasicInform')->name('changeBasicInform');
@@ -40,6 +42,10 @@ Route::post('/insertLike','PostCreateController@insertLike')->name('insertLike')
 Route::post('/insertdisLike','PostCreateController@insertdisLike')->name('insertdisLike');
 Route::post('/getComment','PostCreateController@getComment')->name('getComment');
 
+//find friends controller
+//Route::post('/findUser','FindFriend@findUser')->name('findUser');
+Route::get('/showUsers','FindFriend@showUsers')->name('showUsers');
+Route::post('/guestPage','FindFriend@guestPage')->name('guestPage');
 
 
 

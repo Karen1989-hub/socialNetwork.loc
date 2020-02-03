@@ -80,14 +80,16 @@
     </form>
      </li>
             </ul>
-            <form action="{{route('searchUser')}}" class="navbar-form navbar-right hidden-sm">
-              <div class="form-group">
-                <i class="icon ion-android-search"></i>
-                <input type="text" class="form-control" placeholder="Search friends">
+            <form action="{{route('showUsers')}}" id="searchForm" class="navbar-form navbar-right hidden-sm">
+            @csrf
+              <div class="form-group">              
                 
+                <input id="searchUser" type="text" name="searchUser" class="form-control" placeholder="Search friends">              
+                <label for="find" style="color:#fff;float:left" class="btn btn-outline-primary"><i class="icon ion-android-search"></i></label>
+                <input id="find" type="submit"  hidden>
               </div>
-              <!-- <input type="submit" id="searchInp" > -->
             </form>
+            
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container -->
       </nav>
@@ -107,11 +109,7 @@
             <div class="row">
               <div class="col-md-3">
                 <div class="profile-info">
-                @if(Session::get('gender')=="male")
-                  <img src="images/users/generic-user1.jpg" alt="" class="img-responsive profile-photo" />
-                @elseif(Session::get('gender')=="female") 
-                  <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
-                @endif
+                <img src="images/users/{{$userImg}}" alt="" class="img-responsive profile-photo" />
                   <h3>{{$firstName}} {{$lastName}}</h3>
                   <p class="text-muted">Creative Director</p>
                 </div>
@@ -138,11 +136,7 @@
           <!--Timeline Menu for Small Screens-->
           <div class="navbar-mobile hidden-lg hidden-md">
             <div class="profile-info">
-               @if(Session::get('gender')=="male")
-                  <img src="images/users/generic-user1.jpg" alt="" class="img-responsive profile-photo" />
-                @elseif(Session::get('gender')=="female") 
-                  <img src="images/users/generic-user-female.png" alt="" class="img-responsive profile-photo" />
-                @endif
+               <img src="images/users/{{$userImg}}" alt="" class="img-responsive profile-photo" />
               <h4>{{Session::get('autentificateUserfirstName')}} {{Session::get('autentificateUserLastName')}}</h4>
               <p class="text-muted">Creative Director</p>
             </div>

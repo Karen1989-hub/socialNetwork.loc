@@ -82,12 +82,30 @@ class HomeController extends Controller
             $userImg = $ProfImage[0]->imageName;
         };
 
+        //get email
+        $mail = $row->email;
+
+        //get brtday
+        $day = $row->day;
+        $month = $row->month;
+        $year = $row->year;
+
+        //get country
+        $city = $row->city;
+        $country = $row->country;        
+
+        //get work inform
         $workInfo = WorkExperien::where('userId',$id)->get();  
 
+        //get education inform
         $educInform = SaveMyEducation::where('userId',$id)->get();
+
+
         $arr = ['aboutMe'=>$aboutMe,'educInform'=>$educInform,
         'firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg,
-        'workInfo'=>$workInfo];
+        'workInfo'=>$workInfo,'mail'=>$mail,'day'=>$day,'month'=>$month,
+        'year'=>$year,'city'=>$city,'country'=>$country];
+        
         return view('about',$arr);
     }
     public function album(){     
@@ -196,9 +214,27 @@ class HomeController extends Controller
         $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg]; 
         return view('changePassword',$arr);
     }
+  
 
-    public function searchUser(){
-        dd('search');
+    public function getUsersList(){
+        $id = Auth::id();
+        $row = User::find($id);         
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $gender = $row->gender;
+
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg];
+        return view('usersList',$arr);
     }
    
 }

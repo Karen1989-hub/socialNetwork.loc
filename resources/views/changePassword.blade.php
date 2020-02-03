@@ -40,7 +40,7 @@
           <!--Timeline Menu for Small Screens-->
           <div class="navbar-mobile hidden-lg hidden-md">
             <div class="profile-info">
-              <img src="images/users/user-1.jpg" alt="" class="img-responsive profile-photo" />
+              <img src="images/users/{{$userImg}}" alt="" class="img-responsive profile-photo" />
               <h4>Sarah Cruiz</h4>
               <p class="text-muted">Creative Director</p>
             </div>

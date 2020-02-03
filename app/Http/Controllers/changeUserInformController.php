@@ -178,13 +178,9 @@ class changeUserInformController extends Controller
 
             $update = ProfilImage::find($row[0]->id);
             $update->imageName = $file->getClientOriginalName();
-            $update->save();
-            
-         }
+            $update->save();            
+         }         
         
-         //$file->move('images/users',$file->getClientOriginalName());
-         //ProfilImage::firstOrCreate('')
-        //unlink(public_path("images/users/".$file->getClientOriginalName()));
         
         // dd($file->getClientOriginalName());
         return back();
