@@ -10,6 +10,7 @@ use App\WorkExperien;
 use App\ProfilImage;
 use App\Post;
 use App\Like;
+use App\FriendRequest;
 
 class HomeController extends Controller
 {
@@ -235,6 +236,36 @@ class HomeController extends Controller
 
         $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg];
         return view('usersList',$arr);
+    }
+
+    public function friendRequest(){
+         $id = Auth::id();
+
+         $row = User::find($id);         
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $gender = $row->gender;
+
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
+        //get request users information
+        $requests = FriendRequest::where('to',$id)->get();
+        // $request_firstName = $requests[0]->from_frstName;
+        // $request_lastName = $requests[0]->from_lastName;
+        // $request_imageName = $requests[0]->from_imageName;
+           //dd($requests);
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg,
+        'requests'=>$requests];       
+        return view('friendRequest',$arr);
     }
    
 }

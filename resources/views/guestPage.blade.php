@@ -32,7 +32,20 @@
                   
                 </ul>
                 <ul class="follow-me list-inline">                  
-                  <li><button class="btn-primary">Add Friend</button></li>
+                  <li>
+                  <form action="{{route('setFriendRequest')}}" method="POST">
+                  @csrf
+                  <input type="hidden" name="id" value="{{$id}}">
+                  <strong>{{$id}}</strong>
+                  <button type="submit" class="btn-primary">
+                  @if($req==0)
+                  Add Friend
+                  @else
+                  Request has been sent
+                  @endif
+                  </button>
+                  </form>                  
+                  </li>
                 </ul>
               </div>
             </div>
@@ -49,12 +62,23 @@
               <ul class="list-inline">
                 <li><a href="{{route('home')}}" >Home</a></li>
                   <!-- <li><a href="{{route('about')}}">About</a></li> -->
-                  <!-- <li><a href="{{route('album')}}">Album</a></li>
-                  <li><a href="{{route('friends')}}">Friends</a></li>
-                  <li><a href="">Chatroom</a></li> -->
+                  <!-- <li><a href="{{route('album')}}">Album</a></li>-->
+                  <!-- <li><a href="">Friend request</a></li> -->
+                  <!-- <li><a href="{{route('friends')}}">Friends</a></li> -->
+                  <!-- <li><a href="">Chatroom</a></li>  -->
                   
               </ul>
-              <button class="btn-primary">Add Friend</button>
+               <form action="{{route('setFriendRequest')}}" method="POST">
+                  @csrf
+                  <input type="hidden" name="id" value="{{$id}}">
+                  <button type="submit" class="btn-primary">
+                  @if($req==0)
+                  Add Friend
+                  @else
+                  Request has been sent
+                  @endif
+                  </button>
+                  </form>    
             </div>
           </div><!--Timeline Menu for Small Screens End-->
 

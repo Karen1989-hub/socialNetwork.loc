@@ -8,6 +8,7 @@ use App\ProfilImage;
 use Auth;
 use App\WorkExperien;
 use App\SaveMyEducation;
+use App\FriendRequest;
 
 class FindFriend extends Controller
 {
@@ -49,7 +50,9 @@ class FindFriend extends Controller
     }
 
     public function guestPage(Request $request){
+        
         $id = $request->input('userId');
+        $utentId = Auth::id();
         
         $row = User::find($id);         
         $firstName = $row->firstName;
@@ -84,10 +87,76 @@ class FindFriend extends Controller
         //get education inform
         $educInform = SaveMyEducation::where('userId',$id)->get();        
 
+        //request has been or not been sent
+        $req = FriendRequest::where('from',$utentId)->where('to',$id)->count();
+
          $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg,
          'workInfo'=>$workInfo,'educInform'=>$educInform,'mail'=>$mail,'day'=>$day,'month'=>$month,
-        'year'=>$year,'city'=>$city,'country'=>$country,''
+        'year'=>$year,'city'=>$city,'country'=>$country,'id'=>$id,'req'=>$req
         ];
         return view('guestPage',$arr);        
+    }
+
+    public function setFriendRequest(Request $request){
+        $utentId = Auth::id();        
+        $id = $request->input('id');
+
+        $row = User::find($id);         
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $gender = $row->gender;
+
+        //get Profile image
+        $ProfImage = ProfilImage::where('userId',$id)->get();     
+        if($ProfImage[0]->imageName=="null" && $gender == "male"){
+            $userImg = "generic-user1.jpg";
+        } else if($ProfImage[0]->imageName=="null" && $gender == "female"){
+            $userImg = "generic-user-female.png";
+        } else if($ProfImage[0]->imageName!="null"){
+            $userImg = $ProfImage[0]->imageName;
+        };
+
+        //get email
+        $mail = $row->email;
+
+        //get brtday
+        $day = $row->day;
+        $month = $row->month;
+        $year = $row->year;
+
+        //get country
+        $city = $row->city;
+        $country = $row->country;        
+
+        //get work inform
+        $workInfo = WorkExperien::where('userId',$id)->get();  
+
+        //get education inform
+        $educInform = SaveMyEducation::where('userId',$id)->get();        
+
+        //sender user inform
+        $senders = User::find($utentId);
+        $senders_firstName = $senders->firstName;
+        $senders_lastName = $senders->lastName;
+        $senders_imageNam = ProfilImage::where('userId',$utentId)->get();
+        $senders_imageName = $senders_imageNam[0]->imageName;        
+
+        //request has been or not been sent
+        $req = FriendRequest::where('from',$utentId)->where('to',$id)->count();        
+        if($req==0){
+           FriendRequest::create(['from'=>$utentId,
+           'from_frstName'=>$senders_firstName,'from_lastName'=>$senders_lastName,
+           'from_imageName'=>$senders_imageName,'to'=>$id]);
+           $req=1;
+        }
+
+         $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg,
+         'workInfo'=>$workInfo,'educInform'=>$educInform,'mail'=>$mail,'day'=>$day,'month'=>$month,
+        'year'=>$year,'city'=>$city,'country'=>$country,'id'=>$id,'req'=>$req
+        ];
+
+        
+        
+        return view('guestPage',$arr);
     }
 }

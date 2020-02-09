@@ -164,7 +164,7 @@ class changeUserInformController extends Controller
          
          if($oldUserProfImg == "null"){
             $file->move('images/users',$file->getClientOriginalName());
-
+ 
              
             $update = ProfilImage::find($row[0]->id);
             $update->imageName = $file->getClientOriginalName();

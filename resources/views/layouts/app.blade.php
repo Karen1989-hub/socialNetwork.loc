@@ -120,9 +120,10 @@
                 <ul class="list-inline profile-menu">
                   <li><a href="{{route('home')}}" class="active">Timeline</a></li>
                   <li><a href="{{route('about')}}">About</a></li>
-                  <!-- <li><a href="{{route('album')}}">Album</a></li> -->
-                  <!-- <li><a href="{{route('friends')}}">Friends</a></li> -->
-                  <!-- <li><a href="">Chatroom</a></li> -->
+                  <!-- <li><a href="{{route('album')}}">Album</a></li> -->                  
+                  <li><a href="{{route('friendRequest')}}">Friend request</a></li>
+                  <li><a href="{{route('friends')}}">Friends</a></li>
+                  <li><a href="">Chatroom</a></li>
                   <li><a href="{{route('editProf')}}">Edit profile</a></li>
                   
                 </ul>
@@ -144,9 +145,10 @@
               <ul class="list-inline">
                 <li><a href="{{route('home')}}" class="active">Timeline</a></li>
                   <li><a href="{{route('about')}}">About</a></li>
-                  <!-- <li><a href="{{route('album')}}">Album</a></li>
+                  <!-- <li><a href="{{route('album')}}">Album</a></li>-->
+                  <li><a href="{{route('friendRequest')}}">Friend request</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
-                  <li><a href="">Chatroom</a></li> -->
+                  <li><a href="">Chatroom</a></li> 
                   <li><a href="{{route('editProf')}}">Adit profile</a></li>
               </ul>
               <!-- <button class="btn-primary">Add Friend</button> -->

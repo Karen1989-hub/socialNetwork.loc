@@ -27,6 +27,7 @@ Route::get('/educEndWork','HomeController@educEndWork')->name('educEndWork');
 Route::get('/changePassword','HomeController@changePassword')->name('changePassword');
 Route::get('/search',"HomeController@searchUser")->name('searchUser');
 Route::get('usersList','HomeController@getUsersList')->name('usersList');
+Route::get('/friendRequest','HomeController@friendRequest')->name('friendRequest');
 
 
 //profile information controller 
@@ -46,7 +47,8 @@ Route::post('/getComment','PostCreateController@getComment')->name('getComment')
 //Route::post('/findUser','FindFriend@findUser')->name('findUser');
 Route::get('/showUsers','FindFriend@showUsers')->name('showUsers');
 Route::post('/guestPage','FindFriend@guestPage')->name('guestPage');
-
+Route::post('/setFriendRequest','FindFriend@setFriendRequest')->name('setFriendRequest');
+//Route::get('/getFriendRequest','FindFriend@getFriendRequest')->name('getFriendRequest');
 
 
 
