@@ -49,6 +49,7 @@ Route::get('/showUsers','FindFriend@showUsers')->name('showUsers');
 Route::post('/guestPage','FindFriend@guestPage')->name('guestPage');
 Route::post('/setFriendRequest','FindFriend@setFriendRequest')->name('setFriendRequest');
 //Route::get('/getFriendRequest','FindFriend@getFriendRequest')->name('getFriendRequest');
+Route::post('/insertAcceptanceОfRequest','FindFriend@insertAcceptanceОfRequest');
 
 
 

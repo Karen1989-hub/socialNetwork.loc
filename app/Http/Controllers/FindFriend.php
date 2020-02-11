@@ -9,6 +9,7 @@ use Auth;
 use App\WorkExperien;
 use App\SaveMyEducation;
 use App\FriendRequest;
+use App\Friend;
 
 class FindFriend extends Controller
 {
@@ -158,5 +159,38 @@ class FindFriend extends Controller
         
         
         return view('guestPage',$arr);
+    }
+
+    public function insertAcceptanceОfRequest(Request $request){
+        //get reqest sender inform
+        $whoseRequest = $request->input('whoseRequest');        
+        $requestFirstName = $request->input('requestFirstName');
+        $requestLastName = $request->input('requestLastName');
+        $requestImageName = $request->input('requestImageName');
+
+        //get autentificate user inform
+        $id = Auth::id();
+        $row = User::find($id);
+        $myFirstName = $row->firstName;
+        $myLastName = $row->lastName;
+        $img = ProfilImage::where('userId',$id)->get();
+        $myImageName = $img[0]->imageName;
+
+        //insert data in DB
+        Friend::create(['friend1_firstName'=>$myFirstName,'friend1_lastName'=>$myLastName,
+        'friend1_imageName'=>$myImageName,'friend1'=>$id,'friend2_firstName'=>$requestFirstName,
+        'friend2_lastName'=>$requestLastName,'friend2_imageName'=>$requestImageName,
+        'friend2'=>$whoseRequest]);
+ 
+        
+        $del = FriendRequest::where('from',$whoseRequest)->where('to',$id)->get();
+        $deletId = $del[0]->id;
+        $delete = FriendRequest::find($deletId);
+        $delete->delete();
+
+
+
+        //dd($whoseRequest,$requestFirstName,$requestLastName,$requestImageName);
+        return response()->json(['msg'=>$whoseRequest,'mm'=>$deletId], 200);
     }
 }

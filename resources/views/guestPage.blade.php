@@ -35,8 +35,7 @@
                   <li>
                   <form action="{{route('setFriendRequest')}}" method="POST">
                   @csrf
-                  <input type="hidden" name="id" value="{{$id}}">
-                  <strong>{{$id}}</strong>
+                  <input type="hidden" name="id" value="{{$id}}" >                  
                   <button type="submit" class="btn-primary">
                   @if($req==0)
                   Add Friend

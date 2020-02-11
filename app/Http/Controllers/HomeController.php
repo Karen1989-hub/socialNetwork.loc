@@ -11,6 +11,7 @@ use App\ProfilImage;
 use App\Post;
 use App\Like;
 use App\FriendRequest;
+use App\Friend;
 
 class HomeController extends Controller
 {
@@ -149,7 +150,19 @@ class HomeController extends Controller
             $userImg = $ProfImage[0]->imageName;
         };
 
-        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg];
+        
+        //get friends list
+        $friends1 = Friend::where('friend1',$id)->get();
+        $friends1_img = $friends1[0]->friend1_imageName;
+        
+        $friends2 = Friend::where('friend2',$id)->get();
+        $friends2_img = $friends2[0]->friend2_imageName;
+       
+
+
+        $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg,
+    'friends1'=>$friends1,'friends2'=>$friends2,'friends1_img'=>$friends1_img,
+    'friends2_img'=>$friends2_img];
 
         return view('friends',$arr);
     }

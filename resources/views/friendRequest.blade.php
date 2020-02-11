@@ -44,12 +44,16 @@
    @foreach($requests as $val)
       <tr>
         <td>{{$val->from_frstName}}</td>
-        <td>{{$val->from_lastName}}</td>
+        <td>{{$val->from_lastName}}</td>  
         <td>
-        <form action="#" method="post">
+        <form class="acceptanceОfRequest" action="#" method="post">
         @csrf
-        <input type="text" name="userId" value="{{$val->from}}">
-        <button type="submit" class="btn btn-primary">Enter</button>
+        <input type="hidden" name="whoseRequest" value="{{$val->from}}">
+        <input type="hidden" name="requestFirstName" value='{{$val->from_frstName}}'>
+        <input type="hidden" name="requestLastName" value='{{$val->from_lastName}}'>
+        <input type="hidden" name="requestImageName" value='{{$val->from_ImageName}}'>
+        
+        <button type="submit" class="btn btn-primary {{$val->from}}acceptRequest">Accept</button>
         </form>        
         </td>
       </tr>

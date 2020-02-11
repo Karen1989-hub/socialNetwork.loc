@@ -215,32 +215,34 @@ $('.dislikeForm').click(function (event) {
         success: function (e) {
             $(`.${e.mm}dislike`).html(e.msg);
             console.log(e.msg);
-            // console.log(e.msg);
+            
         }
     });
 });
 
 
-//findUsers
-// $('#searchForm').submit(function(event){
-//     event.preventDefault();
-//         $.ajax({
-//             type: 'POST',
-//             url: '/findUser',
-//             data: new FormData(this),
-//             cache: false,
-//             contentType: false,
-//             processData: false,
+//AJAX accept friends
+$('.acceptanceОfRequest').click(function(event){
+    event.preventDefault();   
 
-//             success: function(e){
-                
-//                 //document.location.href = "/showUsers";
-//                 console.log(e.user);
-//                 console.log(e.name);
-//             }
-//         });    
-    
-    
-// });
+    $.ajax({
+        type: 'POST',
+        url: '/insertAcceptanceОfRequest',
+        data: new FormData(this),
+        cache: false,
+        contentType: false,
+        processData: false,
+
+        success: function (e){
+            //console.log("ajax ok");
+            console.log(e.mm);
+            $(`.${e.msg}acceptRequest`).html("eccepted");
+            $(`.${e.msg}acceptRequest`).css({'background':'green'});
+
+
+        }
+    });
+});
+
 
 
