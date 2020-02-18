@@ -191,6 +191,6 @@ class FindFriend extends Controller
 
 
         //dd($whoseRequest,$requestFirstName,$requestLastName,$requestImageName);
-        return response()->json(['msg'=>$whoseRequest,'mm'=>$deletId], 200);
+        return response()->json(['msg'=>$whoseRequest,'mm'=>$requestImageName], 200);
     }
 }

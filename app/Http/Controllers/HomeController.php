@@ -153,10 +153,18 @@ class HomeController extends Controller
         
         //get friends list
         $friends1 = Friend::where('friend1',$id)->get();
+      	if(count($friends1)==0){
+        $friends1_img = null;
+        } else {
         $friends1_img = $friends1[0]->friend1_imageName;
-        
+        }  
+              
         $friends2 = Friend::where('friend2',$id)->get();
+      	if(count($friends2)==0){
+        $friends2_img = null;
+        } else {
         $friends2_img = $friends2[0]->friend2_imageName;
+        }
        
 
 
@@ -279,6 +287,20 @@ class HomeController extends Controller
         $arr = ['firstName'=>$firstName,'lastName'=>$lastName,'userImg'=>$userImg,
         'requests'=>$requests];       
         return view('friendRequest',$arr);
+    }
+
+    public function show(){
+        $id = Auth::id();
+
+        //get autentificate user inform
+        $row = User::find($id);
+        $firstName = $row->firstName;
+        $lastName = $row->lastName;
+        $imageName = $row->
+
+
+
+        return view('chatroom');
     }
    
 }

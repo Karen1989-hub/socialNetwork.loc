@@ -51,7 +51,7 @@
         <input type="hidden" name="whoseRequest" value="{{$val->from}}">
         <input type="hidden" name="requestFirstName" value='{{$val->from_frstName}}'>
         <input type="hidden" name="requestLastName" value='{{$val->from_lastName}}'>
-        <input type="hidden" name="requestImageName" value='{{$val->from_ImageName}}'>
+        <input type="hidden" name="requestImageName" value='{{$val->from_imageName}}'>
         
         <button type="submit" class="btn btn-primary {{$val->from}}acceptRequest">Accept</button>
         </form>        

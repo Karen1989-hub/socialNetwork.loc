@@ -27,7 +27,7 @@
                   <!-- <li><a href="{{route('album')}}">Album</a></li> -->
                   <li><a href="{{route('friendRequest')}}">Friend request</a></li>
                   <li><a href="{{route('friends')}}" class="active">Friends</a></li>
-                  <li><a href="">Chatroom</a></li>
+                  <li><a href="{{route('chatroom')}}">Chatroom</a></li>
                   <li><a href="{{route('editProf')}}">Edit profile</a></li>
                   
                 </ul>
@@ -52,7 +52,7 @@
                   <!-- <li><a href="{{route('album')}}">Album</a></li> -->
                   <li><a href="{{route('friendRequest')}}">Friend request</a></li>
                   <li><a href="{{route('friends')}}" class="active">Friends</a></li>
-                  <li><a href="">Chatroom</a></li>
+                  <li><a href="{{route('chatroom')}}">Chatroom</a></li>
                   <li><a href="{{route('editProf')}}">Adit profile</a></li>
               </ul>
               <button class="btn-primary">Add Friend</button>
@@ -79,7 +79,7 @@
                       <img src="images/covers/1.jpg" alt="profile-cover" class="img-responsive cover" />
                       <div class="card-info">
                         <img src="images/users/<?php 
-                        if($val->friend2_imageName == null){
+                        if($val->friend2_imageName == null || $val->friend1_imageName == "null"){
                             echo "generic-user1.jpg";
                         } else {
                           echo $val->friend2_imageName;
@@ -103,7 +103,7 @@
                       <img src="images/covers/1.jpg" alt="profile-cover" class="img-responsive cover" />
                       <div class="card-info">
                         <img src="images/users/<?php 
-                        if($val->friend1_imageName == null){
+                        if($val->friend1_imageName == null || $val->friend1_imageName == "null"){
                             echo "generic-user1.jpg";
                         } else {
                           echo $val->friend1_imageName;

@@ -27,7 +27,7 @@
                   <!-- <li><a href="{{route('album')}}">Album</a></li>-->
                   <li><a href="{{route('friendRequest')}}">Friend request</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
-                  <li><a href="">Chatroom</a></li> 
+                  <li><a href="{{route('chatroom')}}">Chatroom</a></li> 
                   <li><a href="{{route('editProf')}}">Edit profile</a></li>
                   
                 </ul>
@@ -52,7 +52,7 @@
                   <!-- <li><a href="{{route('album')}}">Album</a></li> -->
                   <li><a href="{{route('friendRequest')}}">Friend request</a></li>
                   <li><a href="{{route('friends')}}">Friends</a></li>
-                  <li><a href="">Chatroom</a></li>
+                  <li><a href="{{route('chatroom')}}">Chatroom</a></li>
                   <li><a href="{{route('editProf')}}">Adit profile</a></li>
               </ul>
               <button class="btn-primary">Add Friend</button>

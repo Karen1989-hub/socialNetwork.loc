@@ -28,6 +28,7 @@ Route::get('/changePassword','HomeController@changePassword')->name('changePassw
 Route::get('/search',"HomeController@searchUser")->name('searchUser');
 Route::get('usersList','HomeController@getUsersList')->name('usersList');
 Route::get('/friendRequest','HomeController@friendRequest')->name('friendRequest');
+Route::get('/chatroom','HomeController@show')->name('chatroom');
 
 
 //profile information controller 
